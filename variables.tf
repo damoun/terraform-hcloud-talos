@@ -47,3 +47,8 @@ variable "node_subnet_cidr" {
   type    = string
   default = "172.16.16.0/24"
 }
+
+variable "load_balancer_type" {
+  type    = string
+  default = "lb11"
+}
