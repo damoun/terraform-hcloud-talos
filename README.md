@@ -40,16 +40,8 @@ Run Packer first, then Terraform.
 ## Example
 
 ```hcl
-module "hetzner" {
-  source = "git::https://github.com/damoun/terraform-hcloud-talos.git?ref=main"
-
-  hcloud_token        = var.hcloud_token
-  cluster_name        = "my-cluster"
-  talos_version       = "v1.12.4"
-  control_plane_count = 3
-  worker_count        = 3
-  admin_cidrs         = ["0.0.0.0/0"]
-}
+# Example, should give the user an idea about how to use this module.
+# This code is found in the examples directory.
 ```
 
 ## Providers
@@ -58,38 +50,50 @@ module "hetzner" {
 |------|---------|
 | <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | ~> 1.60 |
 
+## Modules
+
+No modules.
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_hcloud_token"></a> [hcloud\_token](#input\_hcloud\_token) | Hetzner Cloud API token | `string` | n/a | yes |
 | <a name="input_admin_cidrs"></a> [admin\_cidrs](#input\_admin\_cidrs) | CIDRs allowed to reach Talos endpoints | `list(string)` | n/a | yes |
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Cluster name | `string` | `"talos-cluster"` | no |
-| <a name="input_location"></a> [location](#input\_location) | Hetzner location | `string` | `"fsn1"` | no |
-| <a name="input_talos_version"></a> [talos\_version](#input\_talos\_version) | Talos version (must match a snapshot built by Packer) | `string` | `"v1.12.4"` | no |
-| <a name="input_server_type"></a> [server\_type](#input\_server\_type) | Hetzner server type | `string` | `"cx23"` | no |
-| <a name="input_control_plane_count"></a> [control\_plane\_count](#input\_control\_plane\_count) | Number of control plane nodes | `number` | `3` | no |
-| <a name="input_worker_count"></a> [worker\_count](#input\_worker\_count) | Number of worker nodes | `number` | `3` | no |
-| <a name="input_network_cidr"></a> [network\_cidr](#input\_network\_cidr) | Network CIDR | `string` | `"172.16.16.0/20"` | no |
-| <a name="input_node_subnet_cidr"></a> [node\_subnet\_cidr](#input\_node\_subnet\_cidr) | Node subnet CIDR | `string` | `"172.16.16.0/24"` | no |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | n/a | `string` | `"talos-cluster"` | no |
+| <a name="input_control_plane_count"></a> [control\_plane\_count](#input\_control\_plane\_count) | n/a | `number` | `3` | no |
+| <a name="input_enable_load_balancer"></a> [enable\_load\_balancer](#input\_enable\_load\_balancer) | n/a | `bool` | `false` | no |
+| <a name="input_hcloud_token"></a> [hcloud\_token](#input\_hcloud\_token) | n/a | `string` | n/a | yes |
+| <a name="input_load_balancer_type"></a> [load\_balancer\_type](#input\_load\_balancer\_type) | n/a | `string` | `"lb11"` | no |
+| <a name="input_location"></a> [location](#input\_location) | n/a | `string` | `"fsn1"` | no |
+| <a name="input_network_cidr"></a> [network\_cidr](#input\_network\_cidr) | n/a | `string` | `"172.16.16.0/20"` | no |
+| <a name="input_node_subnet_cidr"></a> [node\_subnet\_cidr](#input\_node\_subnet\_cidr) | n/a | `string` | `"172.16.16.0/24"` | no |
+| <a name="input_server_type"></a> [server\_type](#input\_server\_type) | n/a | `string` | `"cx23"` | no |
+| <a name="input_talos_version"></a> [talos\_version](#input\_talos\_version) | n/a | `string` | `"v1.12.4"` | no |
+| <a name="input_worker_count"></a> [worker\_count](#input\_worker\_count) | n/a | `number` | `3` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_control_plane_ips"></a> [control\_plane\_ips](#output\_control\_plane\_ips) | Public IPv4 addresses of control plane nodes |
-| <a name="output_worker_ips"></a> [worker\_ips](#output\_worker\_ips) | Public IPv4 addresses of worker nodes |
+| <a name="output_control_plane_ips"></a> [control\_plane\_ips](#output\_control\_plane\_ips) | n/a |
+| <a name="output_load_balancer_ipv4"></a> [load\_balancer\_ipv4](#output\_load\_balancer\_ipv4) | n/a |
+| <a name="output_load_balancer_ipv6"></a> [load\_balancer\_ipv6](#output\_load\_balancer\_ipv6) | n/a |
+| <a name="output_worker_ips"></a> [worker\_ips](#output\_worker\_ips) | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [hcloud_firewall.cluster](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/firewall) | resource |
-| [hcloud_network.cluster](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/network) | resource |
-| [hcloud_network_subnet.nodes](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/network_subnet) | resource |
-| [hcloud_placement_group.control_plane](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/placement_group) | resource |
-| [hcloud_placement_group.worker](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/placement_group) | resource |
-| [hcloud_server.control_plane](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
-| [hcloud_server.worker](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
-| [hcloud_image.talos](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/data-sources/image) | data source |
+| hcloud_firewall.cluster | resource |
+| hcloud_load_balancer.api | resource |
+| hcloud_load_balancer_network.api | resource |
+| hcloud_load_balancer_service.api | resource |
+| hcloud_load_balancer_target.control_plane | resource |
+| hcloud_network.cluster | resource |
+| hcloud_network_subnet.nodes | resource |
+| hcloud_placement_group.control_plane | resource |
+| hcloud_placement_group.worker | resource |
+| hcloud_server.control_plane | resource |
+| hcloud_server.worker | resource |
+| hcloud_image.talos | data source |
 <!-- END_TF_DOCS -->
