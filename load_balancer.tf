@@ -1,4 +1,5 @@
 resource "hcloud_load_balancer" "api" {
+  count              = var.enable_load_balancer ? 1 : 0
   name               = "${var.cluster_name}-api"
   load_balancer_type = var.load_balancer_type
   location           = var.location
@@ -9,12 +10,14 @@ resource "hcloud_load_balancer" "api" {
 }
 
 resource "hcloud_load_balancer_network" "api" {
-  load_balancer_id = hcloud_load_balancer.api.id
+  count            = var.enable_load_balancer ? 1 : 0
+  load_balancer_id = hcloud_load_balancer.api[0].id
   network_id       = hcloud_network.cluster.id
 }
 
 resource "hcloud_load_balancer_service" "api" {
-  load_balancer_id = hcloud_load_balancer.api.id
+  count            = var.enable_load_balancer ? 1 : 0
+  load_balancer_id = hcloud_load_balancer.api[0].id
   protocol         = "tcp"
   listen_port      = 6443
   destination_port = 6443
@@ -29,8 +32,8 @@ resource "hcloud_load_balancer_service" "api" {
 }
 
 resource "hcloud_load_balancer_target" "control_plane" {
-  count            = var.control_plane_count
-  load_balancer_id = hcloud_load_balancer.api.id
+  count            = var.enable_load_balancer ? var.control_plane_count : 0
+  load_balancer_id = hcloud_load_balancer.api[0].id
   type             = "server"
   server_id        = hcloud_server.control_plane[count.index].id
   use_private_ip   = true

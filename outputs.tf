@@ -7,9 +7,9 @@ output "worker_ips" {
 }
 
 output "load_balancer_ipv4" {
-  value = hcloud_load_balancer.api.ipv4
+  value = var.enable_load_balancer ? hcloud_load_balancer.api[0].ipv4 : null
 }
 
 output "load_balancer_ipv6" {
-  value = hcloud_load_balancer.api.ipv6
+  value = var.enable_load_balancer ? hcloud_load_balancer.api[0].ipv6 : null
 }
