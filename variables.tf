@@ -48,6 +48,11 @@ variable "node_subnet_cidr" {
   default = "172.16.16.0/24"
 }
 
+variable "enable_public_ipv4" {
+  type    = bool
+  default = true
+}
+
 variable "enable_load_balancer" {
   type    = bool
   default = false
