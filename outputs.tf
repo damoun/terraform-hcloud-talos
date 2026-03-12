@@ -2,8 +2,24 @@ output "control_plane_ips" {
   value = [for s in hcloud_server.control_plane : s.ipv4_address]
 }
 
+output "control_plane_internal_ips" {
+  value = [for s in hcloud_server.control_plane : s.network[0].ip]
+}
+
+output "control_plane_ipv6s" {
+  value = [for s in hcloud_server.control_plane : s.ipv6_address]
+}
+
 output "worker_ips" {
   value = [for s in hcloud_server.worker : s.ipv4_address]
+}
+
+output "worker_internal_ips" {
+  value = [for s in hcloud_server.worker : s.network[0].ip]
+}
+
+output "worker_ipv6s" {
+  value = [for s in hcloud_server.worker : s.ipv6_address]
 }
 
 output "load_balancer_ipv4" {
