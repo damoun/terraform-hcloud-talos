@@ -54,6 +54,11 @@ resource "hcloud_server" "control_plane" {
   placement_group_id = hcloud_placement_group.control_plane.id
   firewall_ids       = [hcloud_firewall.cluster.id]
 
+  public_net {
+    ipv4_enabled = var.enable_public_ipv4
+    ipv6_enabled = true
+  }
+
   network {
     network_id = hcloud_network.cluster.id
   }
@@ -78,6 +83,11 @@ resource "hcloud_server" "worker" {
   image              = data.hcloud_image.talos.id
   placement_group_id = hcloud_placement_group.worker.id
   firewall_ids       = [hcloud_firewall.cluster.id]
+
+  public_net {
+    ipv4_enabled = var.enable_public_ipv4
+    ipv6_enabled = true
+  }
 
   network {
     network_id = hcloud_network.cluster.id

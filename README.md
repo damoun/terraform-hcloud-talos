@@ -62,6 +62,7 @@ No modules.
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | n/a | `string` | `"talos-cluster"` | no |
 | <a name="input_control_plane_count"></a> [control\_plane\_count](#input\_control\_plane\_count) | n/a | `number` | `3` | no |
 | <a name="input_enable_load_balancer"></a> [enable\_load\_balancer](#input\_enable\_load\_balancer) | n/a | `bool` | `false` | no |
+| <a name="input_enable_public_ipv4"></a> [enable\_public\_ipv4](#input\_enable\_public\_ipv4) | n/a | `bool` | `true` | no |
 | <a name="input_hcloud_token"></a> [hcloud\_token](#input\_hcloud\_token) | n/a | `string` | n/a | yes |
 | <a name="input_load_balancer_type"></a> [load\_balancer\_type](#input\_load\_balancer\_type) | n/a | `string` | `"lb11"` | no |
 | <a name="input_location"></a> [location](#input\_location) | n/a | `string` | `"fsn1"` | no |
@@ -75,10 +76,14 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_control_plane_internal_ips"></a> [control\_plane\_internal\_ips](#output\_control\_plane\_internal\_ips) | n/a |
 | <a name="output_control_plane_ips"></a> [control\_plane\_ips](#output\_control\_plane\_ips) | n/a |
+| <a name="output_control_plane_ipv6s"></a> [control\_plane\_ipv6s](#output\_control\_plane\_ipv6s) | n/a |
 | <a name="output_load_balancer_ipv4"></a> [load\_balancer\_ipv4](#output\_load\_balancer\_ipv4) | n/a |
 | <a name="output_load_balancer_ipv6"></a> [load\_balancer\_ipv6](#output\_load\_balancer\_ipv6) | n/a |
+| <a name="output_worker_internal_ips"></a> [worker\_internal\_ips](#output\_worker\_internal\_ips) | n/a |
 | <a name="output_worker_ips"></a> [worker\_ips](#output\_worker\_ips) | n/a |
+| <a name="output_worker_ipv6s"></a> [worker\_ipv6s](#output\_worker\_ipv6s) | n/a |
 
 ## Resources
 
