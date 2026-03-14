@@ -3,7 +3,7 @@ output "control_plane_ips" {
 }
 
 output "control_plane_internal_ips" {
-  value = [for s in hcloud_server.control_plane : s.network[0].ip]
+  value = [for s in hcloud_server.control_plane : tolist(s.network)[0].ip]
 }
 
 output "control_plane_ipv6s" {
@@ -15,7 +15,7 @@ output "worker_ips" {
 }
 
 output "worker_internal_ips" {
-  value = [for s in hcloud_server.worker : s.network[0].ip]
+  value = [for s in hcloud_server.worker : tolist(s.network)[0].ip]
 }
 
 output "worker_ipv6s" {

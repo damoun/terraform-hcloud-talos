@@ -63,7 +63,6 @@ No modules.
 | <a name="input_control_plane_count"></a> [control\_plane\_count](#input\_control\_plane\_count) | n/a | `number` | `3` | no |
 | <a name="input_enable_load_balancer"></a> [enable\_load\_balancer](#input\_enable\_load\_balancer) | n/a | `bool` | `false` | no |
 | <a name="input_enable_public_ipv4"></a> [enable\_public\_ipv4](#input\_enable\_public\_ipv4) | n/a | `bool` | `true` | no |
-| <a name="input_hcloud_token"></a> [hcloud\_token](#input\_hcloud\_token) | n/a | `string` | n/a | yes |
 | <a name="input_load_balancer_type"></a> [load\_balancer\_type](#input\_load\_balancer\_type) | n/a | `string` | `"lb11"` | no |
 | <a name="input_location"></a> [location](#input\_location) | n/a | `string` | `"fsn1"` | no |
 | <a name="input_network_cidr"></a> [network\_cidr](#input\_network\_cidr) | n/a | `string` | `"172.16.16.0/20"` | no |
