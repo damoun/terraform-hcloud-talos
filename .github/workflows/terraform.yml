@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Clone repo
-        uses: actions/checkout@v5.0.0
+        uses: actions/checkout@v6.0.2
 
       - name: Install tools
         uses: asdf-vm/actions/install@v4.0.0
