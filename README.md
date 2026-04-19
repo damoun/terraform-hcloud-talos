@@ -34,8 +34,8 @@ Run Packer first, then Terraform.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.11 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.60 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | 1.14.8 |
+| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | 1.60.1 |
 
 ## Example
 
@@ -48,7 +48,7 @@ Run Packer first, then Terraform.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | ~> 1.60 |
+| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.60.1 |
 
 ## Modules
 
