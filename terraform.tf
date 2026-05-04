@@ -1,10 +1,10 @@
 terraform {
-  required_version = ">= 1.11.0"
+  required_version = "1.15.1"
 
   required_providers {
     hcloud = {
       source  = "registry.opentofu.org/hetznercloud/hcloud"
-      version = ">= 1.60.0"
+      version = "1.62.0"
     }
   }
 }
